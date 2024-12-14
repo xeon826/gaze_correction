@@ -10,6 +10,7 @@ import dlib
 # install dlib by "pip install cmake dlib"
 import cv2
 import numpy as np
+import os
 
 
 # In[7]:
@@ -25,12 +26,15 @@ P_IPD = 6.3 # cm
 # default image resolution
 video_res = [640,480]
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 # define the face detector from Dlib package
 detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor("./lm_feat/shape_predictor_68_face_landmarks.dat")
+predictor = dlib.shape_predictor(current_dir + "/lm_feat/shape_predictor_68_face_landmarks.dat")
 
 # detect face size with smaller resolustion for detection efficiency
 face_detect_size = [320,240]
+
 
 
 # In[8]:

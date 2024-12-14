@@ -21,6 +21,7 @@ import multiprocessing as mp
 from config import get_config
 import pickle
 import math
+import os
 
 
 # In[ ]:
@@ -58,6 +59,8 @@ print(Rs)
 
 # In[ ]:
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+print('current_dir', current_dir)
 
 # video receiver
 class video_receiver:
@@ -72,7 +75,7 @@ class video_receiver:
         self.conn, self.addr=self.video_recv.accept()
         # face detection
         self.detector = dlib.get_frontal_face_detector()
-        self.predictor = dlib.shape_predictor("./lm_feat/shape_predictor_68_face_landmarks.dat") 
+        self.predictor = dlib.shape_predictor(current_dir + "/lm_feat/shape_predictor_68_face_landmarks.dat") 
         self.face_detect_size = [320,240]
         self.x_ratio = size_video[0]/self.face_detect_size[0]
         self.y_ratio = size_video[1]/self.face_detect_size[1]      
@@ -134,7 +137,7 @@ class gaze_redirection_system:
     def __init__(self,shared_v,lock):
         #Landmark identifier. Set the filename to whatever you named the downloaded file
         self.detector = dlib.get_frontal_face_detector()
-        self.predictor = dlib.shape_predictor("./lm_feat/shape_predictor_68_face_landmarks.dat") 
+        self.predictor = dlib.shape_predictor(current_dir + "/lm_feat/shape_predictor_68_face_landmarks.dat") 
         self.size_df = (320,240)
         self.size_I = (48,64)
         # initial value
