@@ -5,12 +5,19 @@ services:
     image: sulfurheron/nvidia-cuda:9.0-cudnn7-devel-ubuntu16.04-2018-06-08
     runtime: nvidia
     command: tail -f /dev/null  # Keeps the container running
+    environment:
+      - COLUMNS=`tput cols`
+      - LINES=`tput lines`
+      - DISPLAY=$DISPLAY
+      - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
       - .:/app
+    devices:
+      - "/dev/video0:/dev/video0"
     working_dir: /app
     deploy:
       resources:
@@ -19,4 +26,4 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
-
+    privileged: true  # Optional, use only if necessary
