@@ -10,6 +10,7 @@ RUN apt-get update && \
     curl \
     git \
     libbz2-dev \
+    cmake \
     libffi-dev \
     liblzma-dev \
     libncurses5-dev \
