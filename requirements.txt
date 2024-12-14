@@ -1,0 +1,7 @@
+scikit-build
+dlib==19.15.0
+tensorflow==1.13.1
+opencv-python
+numpy
+scipy
+protobuf==3.20.*

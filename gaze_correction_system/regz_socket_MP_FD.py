@@ -14,8 +14,7 @@ import socket
 import struct
 import numpy as np
 import tensorflow as tf
-from win32api import GetSystemMetrics
-import win32gui
+import tkinter as tk
 
 from threading import Thread, Lock
 import multiprocessing as mp
@@ -41,14 +40,19 @@ P_IDP = 5
 depth = -50
 # for monitoring
 
-# environment parameter
-Rs = (GetSystemMetrics(0),GetSystemMetrics(1))
+# Initialize tkinter
+root = tk.Tk()
+root.withdraw()  # Hide the main window
+# Rs = (GetSystemMetrics(0),GetSystemMetrics(1))
 
 
 # In[ ]:
 
 
 model_dir
+
+# Retrieve screen resolution
+Rs = (root.winfo_screenwidth(), root.winfo_screenheight())
 print(Rs)
 
 
