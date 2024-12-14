@@ -14,6 +14,8 @@ RUN apt-get update && \
     libffi-dev \
     liblzma-dev \
     libncurses5-dev \
+    xdotool \
+    net-tools \
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \

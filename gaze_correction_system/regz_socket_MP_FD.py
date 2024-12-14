@@ -14,7 +14,6 @@ import struct
 import numpy as np
 import tensorflow as tf
 import tkinter as tk
-import pygetwindow as gw
 import subprocess
 
 from threading import Thread, Lock
@@ -352,7 +351,7 @@ class gaze_redirection_system:
 
         return img_eye / 255, ach_map, eye_center, ori_size, LT_coor
 
-    def get_window_geometry(window_name):
+    def get_window_geometry(self, window_name):
         try:
             # Get window ID
             window_id = (
@@ -377,13 +376,14 @@ class gaze_redirection_system:
                     width, height = map(int, size)
 
             return (left, top, left + width, top + height), (width, height)
-        except subprocess.CalledProcessError:
-            print("Window not found")
+        except Exception as ex:
+            print('Error while finding window')
+            print(str(ex))
             return None, (659, 528)
 
     def shifting_angles_estimator(self, R_le, R_re, shared_v, lock):
         # get P_w
-        Rw_lt, size_window = get_window_geometry("Remote")
+        Rw_lt, size_window = self.get_window_geometry("Remote")
         if Rw_lt is None:
             Rw_lt = [
                 int(Rs[0]) - int(size_window[0] / 2),
