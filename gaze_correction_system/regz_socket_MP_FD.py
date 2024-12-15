@@ -377,7 +377,7 @@ class gaze_redirection_system:
 
             return (left, top, left + width, top + height), (width, height)
         except Exception as ex:
-            print('Error while finding window')
+            print("Error while finding window")
             print(str(ex))
             return None, (659, 528)
 

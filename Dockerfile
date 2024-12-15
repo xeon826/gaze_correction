@@ -16,6 +16,8 @@ RUN apt-get update && \
     libncurses5-dev \
     xdotool \
     net-tools \
+    libboost-python-dev \
+    libboost-all-dev \
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \

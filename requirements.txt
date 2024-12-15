@@ -5,3 +5,10 @@ opencv-python
 numpy
 scipy
 protobuf==3.20.*
+
+
+# tensorflow==1.8.0
+# dlib==18.17.100
+# opencv-python
+# numpy==1.15.4
+# scipy==0.19.1
