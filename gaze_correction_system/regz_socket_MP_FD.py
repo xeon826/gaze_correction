@@ -204,6 +204,9 @@ class gaze_redirection_system:
                 ),
                 graph=g,
             )
+
+            init = tf.global_variables_initializer()
+            self.L_sess.run(init)
             # load model
             saver = tf.train.Saver(tf.global_variables())
             ckpt = tf.train.get_checkpoint_state(model_dir + "L/")
@@ -249,6 +252,9 @@ class gaze_redirection_system:
                 ),
                 graph=g2,
             )
+
+            init = tf.global_variables_initializer()
+            self.R_sess.run(init)
             # load model
             saver = tf.train.Saver(tf.global_variables())
             ckpt = tf.train.get_checkpoint_state(model_dir + "R/")

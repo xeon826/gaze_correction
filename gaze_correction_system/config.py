@@ -23,10 +23,10 @@ model_config.add_argument("--uid", type=str, default="local", help="")
 model_config.add_argument("--P_IDP", type=eval, default=6.3, help="")
 model_config.add_argument("--f", type=eval, default=650, help="")
 model_config.add_argument("--P_c_x", type=eval, default=0, help="")
-model_config.add_argument("--P_c_y", type=eval, default=-21, help="")
+model_config.add_argument("--P_c_y", type=eval, default=-12.5, help="")
 model_config.add_argument("--P_c_z", type=eval, default=-1, help="")
-model_config.add_argument("--S_W", type=eval, default=62, help="")
-model_config.add_argument("--S_H", type=eval, default=35, help="")
+model_config.add_argument("--S_W", type=eval, default=55, help="")
+model_config.add_argument("--S_H", type=eval, default=30, help="")
 
 
 def get_config():
