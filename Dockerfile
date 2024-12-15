@@ -1,4 +1,4 @@
-FROM sulfurheron/nvidia-cuda:9.0-cudnn7-devel-ubuntu16.04-2018-06-08
+FROM sulfurheron/nvidia-cuda:10.0-cudnn7-runtime-ubuntu16.04-2019-07-29
 
 # Set the working directory
 WORKDIR /app

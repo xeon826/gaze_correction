@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   test:
-    image: sulfurheron/nvidia-cuda:9.0-cudnn7-devel-ubuntu16.04-2018-06-08
+    image: sulfurheron/nvidia-cuda:10.0-cudnn7-runtime-ubuntu16.04-2019-07-29
     runtime: nvidia
     command: tail -f /dev/null  # Keeps the container running
     environment:
