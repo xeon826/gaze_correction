@@ -47,7 +47,6 @@ depth = -50
 # Initialize tkinter
 root = tk.Tk()
 root.withdraw()  # Hide the main window
-# Rs = (GetSystemMetrics(0),GetSystemMetrics(1))
 
 
 # In[ ]:
