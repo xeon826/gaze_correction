@@ -33,9 +33,10 @@ if conf.mod == "flx":
 else:
     sys.exit("Wrong Model selection: flx or deepwarp")
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
 # system parameters
 model_dir = (
-    "./" + conf.weight_set + "/warping_model/" + conf.mod + "/" + str(conf.ef_dim) + "/"
+    current_dir + "/" + conf.weight_set + "/warping_model/" + conf.mod + "/" + str(conf.ef_dim) + "/"
 )
 size_video = [640, 480]
 # fps = 0
@@ -61,8 +62,6 @@ print(Rs)
 
 # In[ ]:
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-print("current_dir", current_dir)
 
 
 # video receiver
@@ -381,7 +380,8 @@ class gaze_redirection_system:
                     size = line.split(":")[1].strip().split("x")
                     width, height = map(int, size)
 
-            return (left, top, left + width, top + height), (width, height)
+            result = (left, top, left + width, top + height), (width, height)
+            return result
         except Exception as ex:
             print("Error while finding window")
             print(str(ex))
